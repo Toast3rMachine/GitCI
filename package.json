@@ -1,11 +1,14 @@
 {
   "scripts": {
-    "test": "jest",
-    "test:coverage": "jest --coverage"
+    "test": "jest --coverage"
   },
   "jest": {
     "collectCoverage": true,
-    "coverageReporters": "json"
+    "coverageReporters": [
+      "html",
+      "json-summary",
+      "text-summary"
+    ]
   },
   "name": "todolistwebapp-1.0.0",
   "version": "1.0.0",
