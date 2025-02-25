@@ -1,0 +1,15 @@
+{
+  "scripts": {
+    "test": "jest"
+  },
+  "name": "todolistwebapp-1.0.0",
+  "version": "1.0.0",
+  "description": "",
+  "main": "logic.js",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
