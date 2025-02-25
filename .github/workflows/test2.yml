@@ -37,7 +37,12 @@ jobs:
           STATEMENTS=$(jq '.total.statements.pct' coverage/coverage-summary.json)
           FUNCTIONS=$(jq '.total.functions.pct' coverage/coverage-summary.json)
           BRANCHES=$(jq '.total.branches.pct' coverage/coverage-summary.json)
-          COVERAGE='Lignes: $LINES, Statement: $STATEMENTS, Fonction: $FUNCTIONS, Branches: $BRANCHES'
+          echo "COVERAGE_REPORT<<EOF" >> $GITHUB_ENV
+          echo "Lines: ${LINES}%" >> $GITHUB_ENV
+          echo "Statements: ${STATEMENTS}%" >> $GITHUB_ENV
+          echo "Functions: ${FUNCTIONS}%" >> $GITHUB_ENV
+          echo "Branches: ${BRANCHES}%" >> $GITHUB_ENV
+          echo "EOF" >> $GITHUB_ENV
     
     - name: Find Comment
       if: github.event_name == 'pull_request'
@@ -58,5 +63,5 @@ jobs:
         issue-number: ${{ github.event.pull_request.number }}
         body: |
           ## Jest coverage Report
-          ${{ ENV.coverage }}
+          ${{ env.COVERAGE_REPORT }}
         edit-mode: replace
