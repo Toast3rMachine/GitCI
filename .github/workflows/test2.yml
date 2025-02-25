@@ -46,7 +46,7 @@ jobs:
         comment-author: "github-actions[bot]"
         body-includes: Jest Coverage Report
     
-    - run: echo "coverage=<str> >> $GITHUB.ENV"
+    - run: echo "coverage=<str> >> $GITHUB.ENV" 
 
     - name: Create or update coverage comment
       if: github.event_name == 'pull_request'
@@ -57,4 +57,4 @@ jobs:
         body: |
           ## Jest coverage Report
           ${{ env.coverage }}
-          edit-mode: replace
+        edit-mode: replace
